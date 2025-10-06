@@ -1,8 +1,8 @@
 title: "Comercializadora de Plásticos Potosina"
 description: "Catálogo informativo de soluciones y productos plásticos con fichas técnicas e imágenes."
 lang: es-MX
-url: ""
-baseurl: ""
+url: "https://evolvtech-dev.github.io/"
+baseurl: "/catalogo-productos"
 permalink: pretty
 
 collections:
