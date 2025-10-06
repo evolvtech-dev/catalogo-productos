@@ -1,0 +1,50 @@
+---
+layout: default
+---
+<article class="product-page">
+  <div class="product-hero">
+    {% if page.image %}
+    <img class="product-image" src="{{ page.image | relative_url }}" alt="{{ page.title }}">
+    {% endif %}
+    <div>
+      <h1>{{ page.title }}</h1>
+      {% if page.summary %}<p class="lead">{{ page.summary }}</p>{% endif %}
+      {% if page.badge %}<span class="badge">{{ page.badge }}</span>{% endif %}
+    </div>
+  </div>
+
+  <div class="product-content">
+    <section>
+      {{ content }}
+    </section>
+
+    {% if page.features %}
+    <section>
+      <h2>Características</h2>
+      <ul>
+      {% for f in page.features %}
+        <li>{{ f }}</li>
+      {% endfor %}
+      </ul>
+    </section>
+    {% endif %}
+
+    {% if page.specs %}
+    <section>
+      <h2>Especificaciones</h2>
+      <table class="specs">
+        <tbody>
+          {% for k in page.specs %}
+          <tr>
+            <th>{{ k[0] }}</th>
+            <td>{{ k[1] }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </section>
+    {% endif %}
+  </div>
+
+  <p><a class="button" href="{{ '/' | relative_url }}">Volver al inicio</a></p>
+</article>

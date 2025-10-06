@@ -1,0 +1,15 @@
+title: "Comercializadora de Plásticos Potosina"
+description: "Catálogo informativo de soluciones y productos plásticos con fichas técnicas e imágenes."
+lang: es-MX
+url: ""
+baseurl: ""
+permalink: pretty
+
+collections:
+  products:
+    output: true
+    permalink: /productos/:name/
+
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap

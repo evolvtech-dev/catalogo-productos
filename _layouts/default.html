@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="{{ site.lang | default: 'es-MX' }}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% if page.title %}{{ page.title }} · {% endif %} {{ site.title }}</title>
+    <link rel="icon" href="{{ '/assets/icons/favicon.svg' | relative_url }}" type="image/svg+xml">
+    <link rel="stylesheet" href="{{ '/assets/css/styles.css' | relative_url }}">
+    {% seo %}
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="{{ '/' | relative_url }}">
+          <img class="logo" src="{{ '/assets/icons/logo.svg' | relative_url }}" alt="Comercializadora de Plásticos Potosina" />
+          <span>Comercializadora de Plásticos Potosina</span>
+        </a>
+        <nav class="nav">
+          <a href="{{ '/' | relative_url }}">Inicio</a>
+          <a href="{{ '/#productos' | relative_url }}">Productos</a>
+          <a href="{{ '/contacto' | relative_url }}">Contacto</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+      {{ content }}
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <p>© <span id="y"></span> Comercializadora de Plásticos Potosina. Todos los derechos reservados.</p>
+      </div>
+      <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+    </footer>
+  </body>
+</html>
