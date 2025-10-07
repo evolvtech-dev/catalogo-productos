@@ -79,3 +79,11 @@ img{max-width:100%;display:block}
   transition: filter 0.25s ease;
 }
 
+.logo {
+  height: 28px;
+  width: auto;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+
+
