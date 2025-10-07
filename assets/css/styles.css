@@ -62,3 +62,20 @@ img{max-width:100%;display:block}
   .product-hero{grid-template-columns:1fr}
   .product-content{grid-template-columns:1fr}
 }
+
+/* ==== EFECTO HOVER EN MARCAS ==== */
+.brand-card {
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+}
+
+.brand-card:hover {
+  transform: translateY(-6px) scale(1.04);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.4);
+  background: linear-gradient(135deg, var(--brand), var(--brand-2));
+}
+
+.brand-card:hover img {
+  filter: brightness(1.1) contrast(1.1);
+  transition: filter 0.25s ease;
+}
+
