@@ -86,4 +86,9 @@ img{max-width:100%;display:block}
   vertical-align: middle;
 }
 
+/* CTA pro */
+.cta--pro .button{background:#0b0f19;border-color:transparent}
+.cta--pro .button:hover{transform:translateY(-2px);transition:.2s}
+.contact-item{transition:transform .2s ease, box-shadow .2s ease}
+.contact-item:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(0,0,0,.35)}
 
