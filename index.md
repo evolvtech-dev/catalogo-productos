@@ -118,19 +118,64 @@ title: "Inicio"
 <!-- CTA FINAL -->
 <hr style="border:0;border-top:1px solid var(--border);margin:32px 0">
 
-<section id="contacto" class="cta" style="padding:24px;border:1px solid var(--border);border-radius:18px;background:linear-gradient(135deg,var(--brand),var(--brand-2));color:#0b0f19">
-  <h2 style="margin:0 0 8px">Contáctanos</h2>
-  <p style="margin:0 0 12px">Estamos listos para asesorarte y brindarte una cotización personalizada.</p>
-  
-  <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:16px">
-    <p style="margin:0;font-size:1.05rem"><strong>Teléfono:</strong> <a href="tel:4444594310" style="color:#0b0f19">444 459 4310</a></p>
-    <p style="margin:0;font-size:1.05rem"><strong>WhatsApp:</strong> <a href="https://wa.me/524447142939" target="_blank" rel="noopener" style="color:#0b0f19">444 714 2939</a></p>
-    <p style="margin:0;font-size:1.05rem"><strong>Correo:</strong> <a href="mailto:ventas@ctpslp.com.mx" style="color:#0b0f19">ventas@ctpslp.com.mx</a></p>
+<section id="contacto" class="cta cta--pro"
+  style="position:relative;overflow:hidden;padding:28px;border:1px solid var(--border);border-radius:22px;background:radial-gradient(1200px 400px at -10% -30%, rgba(79,70,229,.35), transparent 60%), radial-gradient(1200px 400px at 110% 130%, rgba(34,211,238,.35), transparent 60%), linear-gradient(135deg,var(--panel),#0c1326);">
+  <div style="position:absolute;inset:-2px;border-radius:24px;pointer-events:none;box-shadow:0 0 120px rgba(79,70,229,.25),0 0 120px rgba(34,211,238,.25) inset;"></div>
+
+  <header style="display:flex;align-items:center;gap:12px;margin-bottom:12px">
+    <!-- Icono carta (correo) -->
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M3 7a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7Z" stroke="url(#g1)" stroke-width="1.6"/>
+      <path d="M4 7l8 6 8-6" stroke="url(#g2)" stroke-width="1.6" fill="none"/>
+      <defs>
+        <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+          <stop stop-color="#22d3ee"/><stop offset="1" stop-color="#4f46e5"/>
+        </linearGradient>
+        <linearGradient id="g2" x1="0" y1="0" x2="1" y2="1">
+          <stop stop-color="#22d3ee"/><stop offset="1" stop-color="#4f46e5"/>
+        </linearGradient>
+      </defs>
+    </svg>
+    <h2 style="margin:0">Contáctanos</h2>
+  </header>
+
+  <p class="lead" style="margin:0 0 16px;color:var(--muted)">
+    Estamos listos para asesorarte y brindarte una cotización personalizada.
+  </p>
+
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin-bottom:18px">
+    <div class="contact-item" style="display:flex;align-items:center;gap:10px;background:var(--card);border:1px solid var(--border);border-radius:14px;padding:12px">
+      <!-- Icono teléfono -->
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M6.6 4h2.2l1.4 3.2-1.6 1.2a12.5 12.5 0 0 0 6 6l1.2-1.6L19.9 15v2.2c0 .9-.7 1.6-1.6 1.6A14.9 14.9 0 0 1 4 6.6C4 5.7 4.7 5 5.6 5H6.6Z" stroke="currentColor" stroke-width="1.6"/>
+      </svg>
+      <p style="margin:0"><strong>Teléfono:</strong> <a href="tel:4444594310">444 459 4310</a></p>
+    </div>
+
+    <div class="contact-item" style="display:flex;align-items:center;gap:10px;background:var(--card);border:1px solid var(--border);border-radius:14px;padding:12px">
+      <!-- Icono WhatsApp -->
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M20.5 11a8.5 8.5 0 1 1-16.7 2.7L3 21l7.5-1.9A8.5 8.5 0 1 1 20.5 11Z" stroke="#22d3ee" stroke-width="1.4"/>
+        <path d="M9.5 8.8c0 3.2 3.5 5.7 4.9 5.7.5 0 1.3-.4 1.5-.9l.6-1.3-2-.7-.9.8c-1.2-.4-2.5-1.7-2.9-2.9l.8-.9-.7-2-.9.6c-.5.3-.9 1-.9 1.6Z" fill="#22d3ee"/>
+      </svg>
+      <p style="margin:0"><strong>WhatsApp:</strong> <a href="https://wa.me/524447142939" target="_blank" rel="noopener">444 714 2939</a></p>
+    </div>
+
+    <div class="contact-item" style="display:flex;align-items:center;gap:10px;background:var(--card);border:1px solid var(--border);border-radius:14px;padding:12px">
+      <!-- Icono mail -->
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M3.3 6.5h17.4v11H3.3v-11Z" stroke="currentColor" stroke-width="1.4"/>
+        <path d="M4 7l8 6 8-6" stroke="currentColor" stroke-width="1.4"/>
+      </svg>
+      <p style="margin:0"><strong>Correo:</strong> <a href="mailto:ventas@ctpslp.com.mx">ventas@ctpslp.com.mx</a></p>
+    </div>
   </div>
 
   <div style="display:flex;gap:12px;flex-wrap:wrap">
     <a class="button" href="mailto:ventas@ctpslp.com.mx?subject=Cotización%20Catálogo%20CTP">Enviar correo</a>
     <a class="button" href="https://wa.me/524447142939" target="_blank" rel="noopener">Chatear por WhatsApp</a>
+    <a class="button" href="tel:4444594310">Llamar ahora</a>
   </div>
 </section>
+
 
