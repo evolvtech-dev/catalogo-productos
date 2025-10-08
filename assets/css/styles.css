@@ -101,14 +101,25 @@ img{max-width:100%;display:block}
 
 /* Botón flotante WhatsApp */
 .wafloat{
-  position: fixed; right: 18px; bottom: 18px;
-  width: 56px; height: 56px; border-radius: 50%;
-  display: grid; place-items: center;
-  background: linear-gradient(135deg,var(--brand),var(--brand-2));
-  color:#0b0f19; box-shadow: 0 12px 24px rgba(0,0,0,.35);
-  z-index: 50; border:1px solid rgba(255,255,255,.08);
-  transition: transform .2s ease, box-shadow .2s ease;
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  width: 60px;
+  height: 60px;
+  background-color: #25D366; /* verde oficial WhatsApp */
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 20px rgba(0,0,0,.3);
+  transition: all 0.25s ease;
+  z-index: 100;
 }
-.wafloat:hover{ transform: translateY(-3px) scale(1.04); box-shadow:0 16px 32px rgba(0,0,0,.45); }
-@media (max-width: 480px){ .wafloat{ right: 14px; bottom: 14px; width: 52px; height: 52px; } }
-
+.wafloat:hover{
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 10px 25px rgba(0,0,0,.4);
+  background-color: #20bd5a;
+}
+@media (max-width:480px){
+  .wafloat{ width:54px; height:54px; right:14px; bottom:14px; }
+}
