@@ -92,3 +92,11 @@ img{max-width:100%;display:block}
 .contact-item{transition:transform .2s ease, box-shadow .2s ease}
 .contact-item:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(0,0,0,.35)}
 
+.site-footer {
+  margin-top: 48px;
+  padding: 32px 0;
+  background: #0f172a;
+  border-top: 1px solid var(--border);
+}
+
+
