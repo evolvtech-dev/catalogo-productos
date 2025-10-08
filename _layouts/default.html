@@ -2,6 +2,25 @@
 <html lang="{{ site.lang | default: 'es-MX' }}">
   <head>
     <meta charset="utf-8">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "CTP - Comercializadora de Termoplásticos Potosina S.A. de C.V.",
+      "url": "{{ site.url }}{{ site.baseurl }}",
+      "email": "ventas@ctpslp.com.mx",
+      "telephone": "+52-444-459-4310",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Av. Industrias 1750 -14A, Jardines del Sur",
+        "postalCode": "78399",
+        "addressLocality": "San Luis Potosí",
+        "addressRegion": "SLP",
+        "addressCountry": "MX"
+      },
+      "sameAs": []
+    }
+    </script>  
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{% if page.title %}{{ page.title }} · {% endif %} {{ site.title }}</title>
     <link rel="icon" href="{{ '/assets/icons/favicon.svg' | relative_url }}" type="image/svg+xml">
