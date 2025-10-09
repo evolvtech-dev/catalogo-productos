@@ -99,15 +99,15 @@ img{max-width:100%;display:block}
   border-top: 1px solid var(--border);
 }
 
-/* Botón flotante WhatsApp (con imagen real) */
-.wafloat{
+/* Botón flotante WhatsApp (ícono con color propio) */
+.wafloat {
   position: fixed;
   right: 18px;
   bottom: 18px;
   width: 60px;
   height: 60px;
   border-radius: 50%;
-  background-color: #29A71A;
+  background: none; /* quitamos el color verde de fondo */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -115,18 +115,30 @@ img{max-width:100%;display:block}
   transition: transform .25s ease, box-shadow .25s ease;
   z-index: 100;
 }
-.wafloat:hover{
+
+.wafloat:hover {
   transform: translateY(-4px) scale(1.05);
   box-shadow: 0 10px 25px rgba(0,0,0,.45);
-  background-color: #20bd5a;
 }
-.wafloat img{
-  width: 32px;
-  height: 32px;
+
+.wafloat img {
+  width: 60px;
+  height: 60px;
   object-fit: contain;
+  border-radius: 50%;
 }
+
 @media (max-width:480px){
-  .wafloat{ width:54px; height:54px; right:14px; bottom:14px; }
-  .wafloat img{ width:28px; height:28px; }
+  .wafloat{
+    width: 54px;
+    height: 54px;
+    right: 14px;
+    bottom: 14px;
+  }
+  .wafloat img{
+    width: 54px;
+    height: 54px;
+  }
 }
+
 
