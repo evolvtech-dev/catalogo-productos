@@ -1,4 +1,6 @@
 ---
+market: "Edificación"
+category: "Cementos y adhesivos"
 layout: product
 title: "Oatey Rain-R-Shine Azul para PVC (946 mL)"
 order: 3
