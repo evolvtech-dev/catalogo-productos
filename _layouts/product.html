@@ -1,50 +1,78 @@
 ---
 layout: default
 ---
-<article class="product-page">
-  <div class="product-hero">
+<!-- Breadcrumbs -->
+<nav style="font-size:.95rem;color:var(--muted);margin:6px 0 10px">
+  <a href="{{ '/' | relative_url }}">Inicio</a> /
+  <a href="{{ '/productos/' | relative_url }}">Productos</a>
+  {% if page.market %} / <a href="{{ '/mercado/' | append: page.market | slugify | append: '/' | relative_url }}">{{ page.market }}</a>{% endif %}
+  {% if page.category %} / <a href="{{ '/categoria/' | append: page.category | slugify | append: '/' | relative_url }}">{{ page.category }}</a>{% endif %}
+</nav>
+
+<section class="product-hero">
+  <div class="product-image">
     {% if page.image %}
-    <img class="product-image" src="{{ page.image | relative_url }}" alt="{{ page.title }}">
+      <img src="{{ page.image | relative_url }}" alt="{{ page.title }}" loading="lazy" style="width:100%;height:auto;border-radius:12px">
     {% endif %}
-    <div>
-      <h1>{{ page.title }}</h1>
-      {% if page.summary %}<p class="lead">{{ page.summary }}</p>{% endif %}
-      {% if page.badge %}<span class="badge">{{ page.badge }}</span>{% endif %}
+  </div>
+  <div>
+    <h1 style="margin:0 0 8px">{{ page.title }}</h1>
+    {% if page.market or page.category %}
+    <p class="lead" style="margin:0 0 12px">
+      {% if page.market %}<span class="badge">{{ page.market }}</span>{% endif %}
+      {% if page.category %} <span class="badge" style="margin-left:6px">{{ page.category }}</span>{% endif %}
+    </p>
+    {% endif %}
+    {% if page.summary %}<p style="color:var(--muted)">{{ page.summary }}</p>{% endif %}
+
+    <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:10px">
+      <a class="button" href="mailto:ventas@ctpslp.com.mx?subject=Cotizaci%C3%B3n%20{{ page.title | uri_escape }}">Solicitar cotización</a>
+      <a class="button" href="https://wa.me/524447142939?text={{ 'Hola, me interesa ' | append: page.title | uri_escape }}" target="_blank" rel="noopener">WhatsApp</a>
+      {% if page.datasheet %}<a class="button" href="{{ page.datasheet | relative_url }}" target="_blank" rel="noopener">Ficha técnica (PDF)</a>{% endif %}
     </div>
   </div>
+</section>
 
-  <div class="product-content">
-    <section>
-      {{ content }}
-    </section>
-
-    {% if page.features %}
-    <section>
-      <h2>Características</h2>
-      <ul>
-      {% for f in page.features %}
-        <li>{{ f }}</li>
-      {% endfor %}
-      </ul>
-    </section>
-    {% endif %}
-
-    {% if page.specs %}
-    <section>
-      <h2>Especificaciones</h2>
-      <table class="specs">
-        <tbody>
-          {% for k in page.specs %}
-          <tr>
-            <th>{{ k[0] }}</th>
-            <td>{{ k[1] }}</td>
-          </tr>
-          {% endfor %}
-        </tbody>
-      </table>
-    </section>
-    {% endif %}
+{% if page.specs %}
+<section class="product-content" style="margin-top:8px">
+  <div>
+    {{ content }}
   </div>
+  <aside>
+    <table class="specs">
+      <tbody>
+      {% for row in page.specs %}
+        <tr><th>{{ row.name }}</th><td>{{ row.value }}</td></tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  </aside>
+</section>
+{% else %}
+<section class="product-content" style="margin-top:8px">
+  <div style="grid-column:1/-1">{{ content }}</div>
+</section>
+{% endif %}
 
-  <p><a class="button" href="{{ '/' | relative_url }}">Volver al inicio</a></p>
-</article>
+<hr style="border:0;border-top:1px solid var(--border);margin:24px 0">
+
+<!-- Relacionados -->
+<section class="reveal">
+  <h2>También te puede interesar</h2>
+  <div class="grid">
+    {% assign pool = site.products | where: "category", page.category %}
+    {% assign relacionados = pool | where_exp: "p", "p.url != page.url" | slice: 0, 3 %}
+    {% for p in relacionados %}
+    <article class="card">
+      <a class="card-media" href="{{ p.url | relative_url }}">
+        {% if p.image %}<img src="{{ p.image | relative_url }}" alt="{{ p.title }}" loading="lazy">{% endif %}
+      </a>
+      <div class="card-body">
+        <h3 class="card-title"><a href="{{ p.url | relative_url }}">{{ p.title }}</a></h3>
+        {% if p.summary %}<p class="card-text">{{ p.summary }}</p>{% endif %}
+        <a class="button" href="{{ p.url | relative_url }}">Ver detalles</a>
+      </div>
+    </article>
+    {% endfor %}
+  </div>
+</section>
