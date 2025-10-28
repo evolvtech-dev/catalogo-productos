@@ -165,3 +165,62 @@ h3{ font-size:1.15rem }
 /* Breadcrumbs enlaces */
 nav a{ color:var(--muted) }
 nav a:hover{ color:var(--text) }
+
+/* Header layout */
+.header-inner{ display:grid; grid-template-columns:auto 1fr auto; align-items:center; gap:18px }
+.nav{ display:flex; gap:18px; align-items:center; justify-content:flex-start }
+.header-actions{ display:flex; gap:12px; align-items:center }
+
+/* Enlaces de nav: mejor contraste y subrayado elegante */
+.nav a{
+  color: var(--muted);
+  padding: 8px 2px;
+  position: relative;
+  font-weight: 600;
+}
+.nav a:hover{ color: var(--text); }
+.nav a::after{
+  content:""; position:absolute; left:0; bottom:0;
+  width:0; height:2px; background:linear-gradient(90deg,var(--brand),var(--brand-2));
+  transition: width .18s ease;
+  border-radius:2px;
+}
+.nav a:hover::after, .nav a.is-active::after{ width:100%; }
+.nav a.is-active{ color: var(--text); }
+
+/* CTA discreta */
+.button-cta{ padding:10px 14px; border-radius:12px; }
+
+/* Botón de tema */
+.theme-toggle{
+  display:inline-flex; align-items:center; justify-content:center;
+  width:38px; height:38px; border-radius:10px;
+  border:1px solid var(--border); background:var(--panel);
+  color:var(--text); cursor:pointer;
+  transition: background .2s ease, transform .2s ease;
+}
+.theme-toggle:hover{ transform:translateY(-1px); }
+.theme-toggle .ico-sun{ display:none; } /* por defecto oscuro */
+
+/* Espaciado del título en brand para dos líneas */
+.brand span{ line-height:1.1 }
+
+/* LIGHT THEME (modo claro) */
+:root{
+  /* oscuro por defecto ya lo tienes arriba */
+}
+html[data-theme="light"]{
+  --bg:#f7f8fb;
+  --panel:#ffffff;
+  --card:#ffffff;
+  --text:#0b1220;
+  --muted:#5b6573;
+  --border:#e5e7eb;
+}
+html[data-theme="light"] .site-header{ background:rgba(255,255,255,.9); }
+html[data-theme="light"] .card-media img{ background:#f5f7fb; }
+html[data-theme="light"] .theme-toggle{ background:#fff; }
+
+/* Cambiar iconos según tema */
+html[data-theme="light"] .theme-toggle .ico-sun{ display:block; }
+html[data-theme="light"] .theme-toggle .ico-moon{ display:none; }
