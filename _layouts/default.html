@@ -47,13 +47,13 @@
           <span>Comercializadora de Plásticos Potosina</span>
         </a>
         <nav class="nav">
-          <a href="{{ '/' | relative_url }}">Inicio</a>
-          <a href="{{ '/productos/' | relative_url }}">Productos</a>
+          <a href="{{ '/' | relative_url }}" class="{% if page.url == '/' %}is-active{% endif %}">Inicio</a>
+          <a href="{{ '/productos/' | relative_url }}" class="{% if page.url contains '/productos' or page.url contains '/mercado/' %}is-active{% endif %}">Productos</a>
           <a href="{{ '/mercado/edificacion/' | relative_url }}">Edificación</a>
           <a href="{{ '/mercado/infraestructura/' | relative_url }}">Infraestructura</a>
           <a href="{{ '/mercado/industria/' | relative_url }}">Industria</a>
           <a href="{{ '/mision-vision-valores/' | relative_url }}">Misión y Visión</a>
-          <a href="#contacto">Contacto</a>
+          <a class="button button-cta" href="#contacto">Cotiza</a>
         </nav>
       </div>
     </header>
