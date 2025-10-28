@@ -50,10 +50,11 @@
   <body>
     <header class="site-header">
       <div class="container header-inner">
-        <a class="brand" href="{{ '/' | relative_url }}">
-          <img class="logo" src="{{ '/assets/icons/logo.png' | relative_url }}" alt="Comercializadora de Plásticos Potosina" />
-          <span>Comercializadora de Plásticos Potosina</span>
+        <a href="{{ '/' | relative_url }}" class="brand">
+          <img class="logo" src="{{ '/assets/icons/logo.png' | relative_url }}" alt="CTP">
+          <span>Comercializadora de Plásticos<br>Potosina</span>
         </a>
+    
         <nav class="nav">
           <a href="{{ '/' | relative_url }}" class="{% if page.url == '/' %}is-active{% endif %}">Inicio</a>
           <a href="{{ '/productos/' | relative_url }}" class="{% if page.url contains '/productos' or page.url contains '/mercado/' %}is-active{% endif %}">Productos</a>
@@ -61,8 +62,19 @@
           <a href="{{ '/mercado/infraestructura/' | relative_url }}">Infraestructura</a>
           <a href="{{ '/mercado/industria/' | relative_url }}">Industria</a>
           <a href="{{ '/mision-vision-valores/' | relative_url }}">Misión y Visión</a>
-          <a class="button button-cta" href="#contacto">Cotiza</a>
         </nav>
+    
+        <div class="header-actions">
+          <!-- Toggle tema -->
+          <button id="themeToggle" class="theme-toggle" aria-label="Cambiar tema">
+            <!-- luna -->
+            <svg class="ico-moon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M21 12.3A8.9 8.9 0 0 1 12.3 21 9 9 0 0 1 6 4.8a.7.7 0 0 1 .9.9A7.5 7.5 0 1 0 18.3 17a.7.7 0 0 1 .9.9c-.6 1.8-1.8 3.3-3.3 4.3A10.5 10.5 0 0 0 21 12.3Z"/></svg>
+            <!-- sol -->
+            <svg class="ico-sun" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M12 4a1 1 0 0 1 1-1h0a1 1 0 0 1 1 1v1a1 1 0 0 1-2 0V4Zm0 15a1 1 0 0 1 1 1h0a1 1 0 0 1-2 0v-1a1 1 0 0 1 1-1Zm9-7a1 1 0 0 1 1 1h0a1 1 0 0 1-1 1h-1a1 1 0 0 1 0-2h1ZM4 12a1 1 0 0 1-1 1H2a1 1 0 1 1 0-2h1a1 1 0 0 1 1 1Zm12.7 6.3a1 1 0 0 1 1.4 1.4l-.7.7a1 1 0 1 1-1.4-1.4l.7-.7ZM6.6 4.6a1 1 0 0 1 1.4-1.4l.7.7A1 1 0 1 1 7.3 5.3l-.7-.7Zm10.1-1.4a1 1 0 0 1 1.4 1.4l-.7.7a1 1 0 0 1-1.4-1.4l.7-.7ZM7.3 18.7a1 1 0 0 1-1.4 1.4l-.7-.7a1 1 0 0 1 1.4-1.4l.7.7ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Z"/></svg>
+          </button>
+    
+          <a class="button button-cta" href="#contacto">Cotiza</a>
+        </div>
       </div>
     </header>
 
