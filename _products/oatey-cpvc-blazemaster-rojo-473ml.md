@@ -1,4 +1,6 @@
 ---
+market: "Industria"
+category: "Cementos y adhesivos"
 layout: product
 title: "Oatey CPVC BlazeMaster Rojo (473 mL)"
 order: 7
