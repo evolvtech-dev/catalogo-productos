@@ -1,0 +1,43 @@
+---
+layout: default
+---
+<h1>{{ page.title }}</h1>
+<p class="lead">Soluciones para: <strong>{{ page.market }}</strong></p>
+
+{% assign items = site.products | where: "market", page.market | sort: "order" %}
+
+<!-- Botones por categoría dentro del mercado -->
+{% assign cats = "" | split: "" %}
+{% for p in items %}
+  {% if p.category and cats contains p.category %}{% else %}
+    {% assign cats = cats | push: p.category %}
+  {% endif %}
+{% endfor %}
+
+<div class="reveal" style="display:flex;flex-wrap:wrap;gap:10px;margin:10px 0 18px">
+  {% for c in cats %}{% if c %}
+  <a class="button" href="#{{ c | slugify }}">{{ c }}</a>
+  {% endif %}{% endfor %}
+</div>
+
+<!-- Listado por categoría -->
+{% for c in cats %}
+  {% if c %}<h2 id="{{ c | slugify }}" class="reveal">{{ c }}</h2>{% endif %}
+  <div class="grid reveal">
+    {% assign grupo = items | where: "category", c %}
+    {% for p in grupo %}
+    <article class="card">
+      <a class="card-media" href="{{ p.url | relative_url }}">
+        {% if p.image %}<img src="{{ p.image | relative_url }}" alt="{{ p.title }}">{% endif %}
+      </a>
+      <div class="card-body">
+        <h3 class="card-title"><a href="{{ p.url | relative_url }}">{{ p.title }}</a></h3>
+        {% if p.summary %}<p class="card-text">{{ p.summary }}</p>{% endif %}
+        <a class="button" href="{{ p.url | relative_url }}">Ver detalles</a>
+      </div>
+    </article>
+    {% endfor %}
+  </div>
+{% endfor %}
+
+<p class="reveal" style="margin-top:20px"><a class="button" href="{{ '/productos/' | relative_url }}">← Ver todos los productos</a></p>
