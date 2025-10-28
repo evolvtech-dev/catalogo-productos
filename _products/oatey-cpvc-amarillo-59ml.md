@@ -1,4 +1,6 @@
 ---
+market: "Industria"
+category: "Cementos y adhesivos"
 layout: product
 title: "Oatey CPVC Amarillo 1-Paso (59 mL)"
 order: 5
