@@ -99,5 +99,25 @@
       </div>
     </footer>
 
+    <script>
+      (function(){
+        const key = 'ctp-theme';
+        const prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+        const saved = localStorage.getItem(key);
+        const initial = saved ? saved : (prefersLight ? 'light' : 'dark');
+        document.documentElement.setAttribute('data-theme', initial);
+    
+        const btn = document.getElementById('themeToggle');
+        if(btn){
+          btn.addEventListener('click', ()=>{
+            const current = document.documentElement.getAttribute('data-theme');
+            const next = current === 'light' ? 'dark' : 'light';
+            document.documentElement.setAttribute('data-theme', next);
+            localStorage.setItem(key, next);
+          });
+        }
+      })();
+    </script>
+ 
   </body>
 </html>
