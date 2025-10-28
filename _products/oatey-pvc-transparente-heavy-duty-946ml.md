@@ -1,4 +1,6 @@
 ---
+market: "Edificación"
+category: "Cementos y adhesivos"
 layout: product
 title: "Oatey PVC Transparente Heavy Duty (946 mL)"
 order: 10
