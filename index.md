@@ -34,19 +34,19 @@ title: "Inicio"
 <!-- SECCIÓN DE MARCAS -->
 <hr style="border:0;border-top:1px solid var(--border);margin:28px 0">
 
-<section id="marcas">
-  <h2>Marcas que distribuimos</h2>
+<section class="brands" aria-labelledby="marcas">
+  <h2 id="marcas">Marcas que distribuimos</h2>
   <p class="lead">Trabajamos con fabricantes líderes para garantizar calidad, disponibilidad y respaldo técnico.</p>
 
-  <div class="brand-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:16px;align-items:center">
-    <div class="brand-card"><img alt="Oatey" src="{{ '/assets/images/marcas/oatey.png' | relative_url }}"></div>
-    <div class="brand-card"><img alt="Spears" src="{{ '/assets/images/marcas/spears.jpg' | relative_url }}"></div>
-    <div class="brand-card"><img alt="Cepex" src="{{ '/assets/images/marcas/cepex.png' | relative_url }}"></div>
-    <div class="brand-card"><img alt="GF" src="{{ '/assets/images/marcas/gf.png' | relative_url }}"></div>
-    <div class="brand-card"><img alt="Garlock" src="{{ '/assets/images/marcas/garlock.png' | relative_url }}"></div>
-    <div class="brand-card"><img alt="PCP" src="{{ '/assets/images/marcas/pcp.webp' | relative_url }}"></div>
-    <div class="brand-card"><img alt="Tecno Plastic" src="{{ '/assets/images/marcas/tecno-plastic.png' | relative_url }}"></div>
-    <div class="brand-card"><img alt="Serrot" src="{{ '/assets/images/marcas/serrot.jpg' | relative_url }}"></div>
+  <div class="brands-grid">
+    <div class="brand-card"><img src="{{ '/assets/images/marcas/OATEY LOGO.png' | relative_url }}" alt="Oatey"></div>
+    <div class="brand-card"><img src="{{ '/assets/images/marcas/LOGO SPEARS COLOR 4.6X4 CMC..jpg' | relative_url }}" alt="Spears"></div>
+    <div class="brand-card"><img src="{{ '/assets/images/marcas/CEPEX LOGO.png' | relative_url }}" alt="Cepex"></div>
+    <div class="brand-card"><img src="{{ '/assets/images/marcas/GF.png' | relative_url }}" alt="GF"></div>
+    <div class="brand-card"><img src="{{ '/assets/images/marcas/GARLOCK LOGO.png' | relative_url }}" alt="Garlock"></div>
+    <div class="brand-card"><img src="{{ '/assets/images/marcas/PCP LOGO.webp' | relative_url }}" alt="PCP"></div>
+    <div class="brand-card"><img src="{{ '/assets/images/marcas/TECNO PLASTIC LOGO.png' | relative_url }}" alt="Tecno Plastic"></div>
+    <div class="brand-card"><img src="{{ '/assets/images/marcas/LOGO SERROT 10X4 CMS. COLOR.jpg' | relative_url }}" alt="Serrot"></div>
   </div>
 </section>
 
