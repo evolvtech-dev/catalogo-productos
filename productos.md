@@ -1,34 +1,41 @@
 ---
 layout: default
-title: "Catálogo de Productos"
+title: "Catálogo de productos"
+permalink: /productos/
 ---
 
 <section class="hero">
-  <h1>Catálogo de Productos</h1>
-  <p class="lead">Explora nuestras soluciones organizadas por industria y categoría.</p>
+  <h1>Catálogo de productos</h1>
+  <p class="lead">Consulta nuestras soluciones organizadas por industria y categoría. Todos los productos incluyen ficha técnica e imagen.</p>
 </section>
 
-<!-- FILTROS POR INDUSTRIA -->
-<nav class="filtros-industria" style="margin-bottom:24px; display:flex; flex-wrap:wrap; gap:12px">
-  {% assign industrias = "Edificacion,Industria,Infraestructura,Agricola,Mineria,Quimica" | split: "," %}
-  {% for industria in industrias %}
-    <a class="button" href="#{{ industria | downcase }}">{{ industria }}</a>
-  {% endfor %}
-</nav>
+<!-- FILTROS POR INDUSTRIA (mercado) -->
+<section style="margin-top:24px">
+  <h2>Industrias que atendemos</h2>
+  <div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:12px">
+    {% assign industrias = site.products | map: "market" | uniq | sort %}
+    {% for m in industrias %}
+      {% if m %}
+      <a href="#{{ m | slugify }}" class="button">{{ m }}</a>
+      {% endif %}
+    {% endfor %}
+  </div>
+</section>
 
-<!-- AGRUPADOS POR INDUSTRIA -->
-{% for industria in industrias %}
-  <section id="{{ industria | downcase }}">
-    <h2>{{ industria }}</h2>
-    {% assign productos_industria = site.products | where: "market", industria %}
-    
-    {% assign categorias = productos_industria | map: "category" | uniq | sort %}
-    
-    {% for categoria in categorias %}
-      <h3 style="margin-top:24px">{{ categoria }}</h3>
+<hr style="border:0;border-top:1px solid var(--border);margin:32px 0">
+
+<!-- PRODUCTOS AGRUPADOS POR INDUSTRIA -->
+{% assign mercados = site.products | map: "market" | uniq | sort %}
+{% for mercado in mercados %}
+  {% if mercado %}
+  <section id="{{ mercado | slugify }}" style="margin-bottom:48px">
+    <h2>{{ mercado }}</h2>
+    {% assign categorias = site.products | where: "market", mercado | map: "category" | uniq | sort %}
+    {% for cat in categorias %}
+      {% assign items = site.products | where: "market", mercado | where: "category", cat %}
+      <h3 id="{{ cat | slugify }}">{{ cat }}</h3>
       <div class="grid">
-        {% assign productos_categoria = productos_industria | where: "category", categoria %}
-        {% for p in productos_categoria %}
+        {% for p in items %}
         <article class="card">
           <a class="card-media" href="{{ p.url | relative_url }}">
             {% if p.image %}
@@ -45,5 +52,5 @@ title: "Catálogo de Productos"
       </div>
     {% endfor %}
   </section>
-  <hr style="margin:32px 0">
+  {% endif %}
 {% endfor %}
