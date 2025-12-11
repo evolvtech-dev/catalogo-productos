@@ -1,14 +1,20 @@
 ---
 layout: default
 ---
-<!-- Breadcrumbs -->
+
+<!-- 🧭 Breadcrumbs -->
 <nav style="font-size:.95rem;color:var(--muted);margin:6px 0 10px">
   <a href="{{ '/' | relative_url }}">Inicio</a> /
   <a href="{{ '/productos/' | relative_url }}">Productos</a>
-  {% if page.market %} / <a href="{{ '/mercado/' | append: page.market | slugify | append: '/' | relative_url }}">{{ page.market }}</a>{% endif %}
-  {% if page.category %} / <a href="{{ '/categoria/' | append: page.category | slugify | append: '/' | relative_url }}">{{ page.category }}</a>{% endif %}
+  {% if page.market %}
+    / <a href="{{ '/productos/#' | append: page.market | slugify }}">{{ page.market }}</a>
+  {% endif %}
+  {% if page.category %}
+    / <a href="{{ '/productos/#' | append: page.category | slugify }}">{{ page.category }}</a>
+  {% endif %}
 </nav>
 
+<!-- 🧾 Hero del producto -->
 <section class="product-hero">
   <div class="product-image">
     {% if page.image %}
@@ -20,21 +26,25 @@ layout: default
     {% if page.market or page.category %}
     <p class="lead" style="margin:0 0 12px">
       {% if page.market %}<span class="badge">{{ page.market }}</span>{% endif %}
-      {% if page.category %} <span class="badge" style="margin-left:6px">{{ page.category }}</span>{% endif %}
+      {% if page.category %}<span class="badge" style="margin-left:6px">{{ page.category }}</span>{% endif %}
     </p>
     {% endif %}
     {% if page.summary %}<p style="color:var(--muted)">{{ page.summary }}</p>{% endif %}
 
+    <!-- 📞 CTA: Cotiza, WhatsApp, PDF -->
     <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:10px">
       <a class="button" href="mailto:ventas@ctpslp.com.mx?subject=Cotizaci%C3%B3n%20{{ page.title | uri_escape }}">Solicitar cotización</a>
       <a class="button" href="https://wa.me/524447142939?text={{ 'Hola, me interesa ' | append: page.title | uri_escape }}" target="_blank" rel="noopener">WhatsApp</a>
-      {% if page.datasheet %}<a class="button" href="{{ page.datasheet | relative_url }}" target="_blank" rel="noopener">Ficha técnica (PDF)</a>{% endif %}
+      {% if page.datasheet %}
+        <a class="button" href="{{ page.datasheet | relative_url }}" target="_blank" rel="noopener">Ficha técnica (PDF)</a>
+      {% endif %}
     </div>
   </div>
 </section>
 
-{% if page.specs %}
-<section class="product-content" style="margin-top:8px">
+<!-- 📐 Detalles del producto + Especificaciones -->
+<section class="product-content" style="margin-top:24px">
+  {% if page.specs %}
   <div>
     {{ content }}
   </div>
@@ -47,16 +57,14 @@ layout: default
       </tbody>
     </table>
   </aside>
-</section>
-{% else %}
-<section class="product-content" style="margin-top:8px">
+  {% else %}
   <div style="grid-column:1/-1">{{ content }}</div>
+  {% endif %}
 </section>
-{% endif %}
 
-<hr style="border:0;border-top:1px solid var(--border);margin:24px 0">
+<hr style="border:0;border-top:1px solid var(--border);margin:32px 0">
 
-<!-- Relacionados -->
+<!-- 🔁 Productos relacionados -->
 <section class="reveal">
   <h2>También te puede interesar</h2>
   <div class="grid">
