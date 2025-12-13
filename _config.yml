@@ -1,15 +1,42 @@
-title: "CTP · Comercializadora de Termoplásticos Potosina"
-description: "Distribuimos soluciones plásticas industriales con asesoría técnica y entrega a todo México."
-lang: es-MX
-url: "https://evolvtech-dev.github.io/"
-baseurl: "/catalogo-productos"
-permalink: pretty
+title: Catálogo CTP
+description: Comercializadora de Plásticos Potosina – Catálogo informativo de productos.
+baseurl: "/catalogo-productos" # o "" si el sitio está en la raíz
+url: "https://evolvtech-dev.github.io" # o tu dominio propio
+
+theme: minima
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-relative-links
 
 collections:
   products:
     output: true
-    permalink: /productos/:name/
+    permalink: /productos/:title/
 
-plugins:
-  - jekyll-seo-tag
-  - jekyll-sitemap
+defaults:
+  - scope:
+      path: ""
+      type: "products"
+    values:
+      layout: "product"
+      category: ""
+      summary: ""
+      specs: []
+
+include:
+  - _products
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - README.md
+  - .github
+
+markdown: kramdown
+highlighter: rouge
+
+permalink: pretty
