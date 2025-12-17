@@ -1,6 +1,33 @@
 ---
-layout: categoria
+layout: category
 title: Tinacos
-description: Almacenamiento de agua en tinacos y cisternas de alta durabilidad.
 permalink: /categoria/tinacos/
+category: Tinacos
 ---
+
+<!-- Hero de categoría -->
+<section class="hero">
+  <h1>Tinacos</h1>
+  <p class="lead">Contenedores plásticos de alta resistencia para almacenamiento de agua potable y otras aplicaciones residenciales o comerciales.</p>
+</section>
+
+<!-- Lista de productos en esta categoría -->
+<section class="grid">
+  {% assign productos = site.products | where: "category", "Tinacos" | sort: "order" %}
+  {% for p in productos %}
+    <article class="card">
+      <a class="card-media" href="{{ p.url | relative_url }}">
+        {% if p.image %}
+          <img src="{{ p.image | relative_url }}" alt="{{ p.title }}">
+        {% endif %}
+      </a>
+      <div class="card-body">
+        <h3 class="card-title"><a href="{{ p.url | relative_url }}">{{ p.title }}</a></h3>
+        {% if p.summary %}
+          <p class="card-text">{{ p.summary }}</p>
+        {% endif %}
+        <a class="button" href="{{ p.url | relative_url }}">Ver detalles</a>
+      </div>
+    </article>
+  {% endfor %}
+</section>
