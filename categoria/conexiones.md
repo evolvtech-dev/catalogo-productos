@@ -8,7 +8,7 @@ category: Conexiones
 <!-- Hero de categoría -->
 <section class="hero">
   <h1>Conexiones</h1>
-  <p class="lead">Encuentra nuestra gama de conexiones plásticas: CPVC, PVC, CTS, DWV, transparentes y más.</p>
+  <p class="lead">Amplia variedad de conexiones plásticas para sistemas hidráulicos, sanitarios e industriales. Diferentes tipos, diámetros y materiales.</p>
 </section>
 
 <!-- Lista de productos en esta categoría -->
