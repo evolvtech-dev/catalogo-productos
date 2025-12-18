@@ -1,33 +1,27 @@
 ---
-layout: category
+layout: default
 title: Tubería
 permalink: /categoria/tuberia/
-category: Tubería
 ---
 
-<!-- Hero de categoría -->
-<section class="hero">
-  <h1>Tubería</h1>
-  <p class="lead">Tubería en distintos materiales, diámetros y estándares: hidráulica, sanitaria, industrial, agrícola y más.</p>
-</section>
+# Tubería
 
-<!-- Lista de productos en esta categoría -->
-<section class="grid">
-  {% assign productos = site.products | where: "category", "Tubería" | sort: "order" %}
-  {% for p in productos %}
-    <article class="card">
-      <a class="card-media" href="{{ p.url | relative_url }}">
-        {% if p.image %}
-          <img src="{{ p.image | relative_url }}" alt="{{ p.title }}">
-        {% endif %}
-      </a>
-      <div class="card-body">
-        <h3 class="card-title"><a href="{{ p.url | relative_url }}">{{ p.title }}</a></h3>
-        {% if p.summary %}
-          <p class="card-text">{{ p.summary }}</p>
-        {% endif %}
-        <a class="button" href="{{ p.url | relative_url }}">Ver detalles</a>
+{% assign items = site.products | where: "category", "tuberia" %}
+
+<div class="products-grid">
+  {% for p in items %}
+    <a class="product-card" href="{{ p.url | relative_url }}">
+      <div class="product-image">
+        <img src="{{ p.image | relative_url }}" alt="{{ p.title }}">
       </div>
-    </article>
+      <div class="product-body">
+        <h3>{{ p.title }}</h3>
+        <p>{{ p.summary }}</p>
+      </div>
+    </a>
   {% endfor %}
-</section>
+</div>
+
+{% if items == empty %}
+<p>No hay productos en esta categoría todavía.</p>
+{% endif %}
