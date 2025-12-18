@@ -14,7 +14,7 @@ permalink: /categoria/
     </div>
     <div class="category-info">
       <h3>Tubería</h3>
-      <p>Soluciones en tubería para múltiples aplicaciones.</p>
+      <p>Tubería para aplicaciones industriales y comerciales.</p>
     </div>
   </a>
 
@@ -24,7 +24,7 @@ permalink: /categoria/
     </div>
     <div class="category-info">
       <h3>Conexiones</h3>
-      <p>Accesorios y conexiones para instalaciones confiables.</p>
+      <p>Conexiones y accesorios para instalaciones confiables.</p>
     </div>
   </a>
 
@@ -34,7 +34,7 @@ permalink: /categoria/
     </div>
     <div class="category-info">
       <h3>Válvulas</h3>
-      <p>Control de flujo con opciones para distintas necesidades.</p>
+      <p>Control de flujo para distintos sistemas.</p>
     </div>
   </a>
 
@@ -44,7 +44,7 @@ permalink: /categoria/
     </div>
     <div class="category-info">
       <h3>Cementos y adhesivos</h3>
-      <p>Cementos solventes, primers y accesorios de instalación.</p>
+      <p>Unión, sellado y preparación de superficies.</p>
     </div>
   </a>
 
@@ -54,7 +54,7 @@ permalink: /categoria/
     </div>
     <div class="category-info">
       <h3>Equipos de bombeo</h3>
-      <p>Equipos para impulsar, recircular y distribuir.</p>
+      <p>Soluciones para impulsión y distribución.</p>
     </div>
   </a>
 
@@ -64,7 +64,7 @@ permalink: /categoria/
     </div>
     <div class="category-info">
       <h3>Tinacos</h3>
-      <p>Almacenamiento de agua para hogar e industria.</p>
+      <p>Almacenamiento y manejo de agua.</p>
     </div>
   </a>
 
@@ -74,7 +74,7 @@ permalink: /categoria/
     </div>
     <div class="category-info">
       <h3>Otros</h3>
-      <p>Complementos y productos adicionales del catálogo.</p>
+      <p>Complementos y líneas especiales.</p>
     </div>
   </a>
 
