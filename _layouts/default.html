@@ -1,79 +1,70 @@
-<!DOCTYPE html>
-<html lang="es" data-theme="dark">
+<!doctype html>
+<html lang="es" data-theme="light">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ page.title }} - CTP</title>
-  <meta name="description" content="{{ page.description | default: site.description }}">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
+  <meta name="description" content="{{ page.summary | default: site.description | escape }}" />
 
-  <!-- Favicon -->
-  <link rel="icon" href="{{ '/assets/images/favicon.png' | relative_url }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
-
-  <!-- CSS Principal -->
-  <link rel="stylesheet" href="{{ '/assets/css/styles.css' | relative_url }}">
+  <link rel="stylesheet" href="{{ '/assets/css/styles.css' | relative_url }}" />
 </head>
 
 <body>
-  <!-- HEADER CON NAVEGACIÓN -->
   <header class="site-header">
     <div class="container header-inner">
-      <div class="brand">
-        <img class="logo" src="{{ '/assets/images/logo.png' | relative_url }}" alt="CTP">
-        <span>CTP</span>
-      </div>
+      <a class="brand" href="{{ '/' | relative_url }}">
+        <span class="brand-name">CTP</span>
+        <span class="brand-sub">Comercializadora de Plásticos Potosina</span>
+      </a>
 
       <nav class="nav">
-        <a href="{{ '/' | relative_url }}" class="{% if page.url == '/' %}is-active{% endif %}">Inicio</a>
-        <a href="{{ '/categoria/' | relative_url }}" class="{% if page.url contains '/categoria/' and page.url != '/categoria/' %}is-active{% endif %}">Productos</a>
-        <a href="{{ '/#beneficios' | relative_url }}">Beneficios</a>
-        <a href="{{ '/#marcas' | relative_url }}">Marcas</a>
-        <a href="{{ '/#contacto' | relative_url }}">Contacto</a>
+        <a class="nav-link" href="{{ '/' | relative_url }}">Inicio</a>
+        <a class="nav-link" href="{{ '/categoria/' | relative_url }}">Catálogo</a>
       </nav>
 
-      <div class="header-actions">
-        <a href="mailto:ventas@ctpslp.com.mx" class="button-cta">Cotiza ahora</a>
-
-        <!-- INTERRUPTOR DE MODO CLARO/OSCURO -->
-        <label class="theme-switch">
-          <input type="checkbox" id="theme-toggle">
-          <span class="slider">
-            <span class="icon sun">☀️</span>
-            <span class="icon moon">🌙</span>
-          </span>
-        </label>
-      </div>
+      <button class="theme-toggle" type="button" id="themeToggle" aria-label="Cambiar modo">
+        <span class="theme-toggle-icon">☀️</span>
+      </button>
     </div>
   </header>
 
-  <!-- CONTENIDO DE LA PÁGINA -->
-  <main class="container">
-    {{ content }}
+  <main class="site-main">
+    <div class="container">
+      {{ content }}
+    </div>
   </main>
 
-  <!-- FOOTER -->
-  <footer class="site-footer container">
-    <p>© {{ site.time | date: '%Y' }} CTP - Comercializadora de Termoplásticos Potosina. Todos los derechos reservados.</p>
-  </footer>
-
-  <!-- WHATSAPP FLOTANTE -->
-  <a href="https://wa.me/524447142939" class="wafloat" target="_blank" rel="noopener">
-    <img src="{{ '/assets/icons/whatsapp.png' | relative_url }}" alt="WhatsApp">
+  <a class="wa-float" href="https://wa.me/5210000000000?text=Hola%20CTP%2C%20me%20interesa%20un%20producto%20del%20cat%C3%A1logo." target="_blank" rel="noopener">
+    WhatsApp
   </a>
 
-  <!-- SCRIPT PARA CAMBIO DE TEMA -->
   <script>
-    const toggle = document.getElementById('theme-toggle');
-    const html = document.documentElement;
-    toggle.addEventListener('change', () => {
-      if (toggle.checked) {
-        html.setAttribute('data-theme', 'light');
-      } else {
-        html.setAttribute('data-theme', 'dark');
+    (function () {
+      var root = document.documentElement;
+      var btn = document.getElementById('themeToggle');
+      var icon = btn ? btn.querySelector('.theme-toggle-icon') : null;
+
+      function applyTheme(t) {
+        root.setAttribute('data-theme', t);
+        if (icon) icon.textContent = (t === 'dark') ? '🌙' : '☀️';
       }
-    });
+
+      var saved = localStorage.getItem('ctp_theme');
+      if (saved) applyTheme(saved);
+
+      if (btn) {
+        btn.addEventListener('click', function () {
+          var current = root.getAttribute('data-theme') || 'light';
+          var next = (current === 'dark') ? 'light' : 'dark';
+          localStorage.setItem('ctp_theme', next);
+          applyTheme(next);
+        });
+      }
+    })();
   </script>
 </body>
 </html>
