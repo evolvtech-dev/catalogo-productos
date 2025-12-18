@@ -1,30 +1,79 @@
-<!-- ENCABEZADO CON NAVEGACIÓN -->
-<header class="site-header">
-  <div class="container header-inner">
-    <div class="brand">
-      <img class="logo" src="{{ '/assets/images/logo.png' | relative_url }}" alt="CTP">
-      <span>CTP</span>
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ page.title }} - CTP</title>
+  <meta name="description" content="{{ page.description | default: site.description }}">
+
+  <!-- Favicon -->
+  <link rel="icon" href="{{ '/assets/images/favicon.png' | relative_url }}">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- CSS Principal -->
+  <link rel="stylesheet" href="{{ '/assets/css/styles.css' | relative_url }}">
+</head>
+
+<body>
+  <!-- HEADER CON NAVEGACIÓN -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <img class="logo" src="{{ '/assets/images/logo.png' | relative_url }}" alt="CTP">
+        <span>CTP</span>
+      </div>
+
+      <nav class="nav">
+        <a href="{{ '/' | relative_url }}" class="{% if page.url == '/' %}is-active{% endif %}">Inicio</a>
+        <a href="{{ '/categoria/' | relative_url }}" class="{% if page.url contains '/categoria/' and page.url != '/categoria/' %}is-active{% endif %}">Productos</a>
+        <a href="{{ '/#beneficios' | relative_url }}">Beneficios</a>
+        <a href="{{ '/#marcas' | relative_url }}">Marcas</a>
+        <a href="{{ '/#contacto' | relative_url }}">Contacto</a>
+      </nav>
+
+      <div class="header-actions">
+        <a href="mailto:ventas@ctpslp.com.mx" class="button-cta">Cotiza ahora</a>
+
+        <!-- INTERRUPTOR DE MODO CLARO/OSCURO -->
+        <label class="theme-switch">
+          <input type="checkbox" id="theme-toggle">
+          <span class="slider">
+            <span class="icon sun">☀️</span>
+            <span class="icon moon">🌙</span>
+          </span>
+        </label>
+      </div>
     </div>
+  </header>
 
-    <nav class="nav">
-      <a href="{{ '/' | relative_url }}" class="{% if page.url == '/' %}is-active{% endif %}">Inicio</a>
-      <a href="{{ '/categoria/' | relative_url }}" class="{% if page.url contains '/categoria/' and page.url != '/categoria/' %}is-active{% endif %}">Productos</a>
-      <a href="{{ '/#beneficios' | relative_url }}">Beneficios</a>
-      <a href="{{ '/#marcas' | relative_url }}">Marcas</a>
-      <a href="{{ '/#contacto' | relative_url }}">Contacto</a>
-    </nav>
+  <!-- CONTENIDO DE LA PÁGINA -->
+  <main class="container">
+    {{ content }}
+  </main>
 
-    <div class="header-actions">
-      <a href="mailto:ventas@ctpslp.com.mx" class="button-cta">Cotiza ahora</a>
+  <!-- FOOTER -->
+  <footer class="site-footer container">
+    <p>© {{ site.time | date: '%Y' }} CTP - Comercializadora de Termoplásticos Potosina. Todos los derechos reservados.</p>
+  </footer>
 
-      <!-- INTERRUPTOR DE MODO OSCURO -->
-      <label class="theme-switch">
-        <input type="checkbox" id="theme-toggle">
-        <span class="slider">
-          <span class="icon sun">☀️</span>
-          <span class="icon moon">🌙</span>
-        </span>
-      </label>
-    </div>
-  </div>
-</header>
+  <!-- WHATSAPP FLOTANTE -->
+  <a href="https://wa.me/524447142939" class="wafloat" target="_blank" rel="noopener">
+    <img src="{{ '/assets/icons/whatsapp.png' | relative_url }}" alt="WhatsApp">
+  </a>
+
+  <!-- SCRIPT PARA CAMBIO DE TEMA -->
+  <script>
+    const toggle = document.getElementById('theme-toggle');
+    const html = document.documentElement;
+    toggle.addEventListener('change', () => {
+      if (toggle.checked) {
+        html.setAttribute('data-theme', 'light');
+      } else {
+        html.setAttribute('data-theme', 'dark');
+      }
+    });
+  </script>
+</body>
+</html>
