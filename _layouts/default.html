@@ -1,71 +1,30 @@
-<!DOCTYPE html>
-<html lang="es" data-theme="dark">
-<head>
-  <meta charset="utf-8">
-  <title>{{ page.title }}</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <!-- Tipografías profesionales -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
-
-  <!-- Estilos -->
-  <link rel="stylesheet" href="{{ '/assets/css/styles.css' | relative_url }}">
-
-  <!-- Favicon -->
-  <link rel="icon" href="{{ '/assets/images/favicon.png' | relative_url }}" type="image/png">
-</head>
-<body>
-
-  <!-- HEADER -->
-  <header class="site-header">
-    <div class="container header-inner">
-      <a href="{{ '/' | relative_url }}" class="brand">
-        <img class="logo" src="{{ '/assets/images/logo-ctp.png' | relative_url }}" alt="CTP Logo">
-        <span>CTP</span>
-      </a>
-      <nav class="nav">
-        <a href="{{ '/' | relative_url }}" {% if page.url == '/' %}class="is-active"{% endif %}>Inicio</a>
-        <a href="{{ '/productos/' | relative_url }}" {% if page.url contains '/productos/' %}class="is-active"{% endif %}>Productos</a>
-        <a href="{{ '/#contacto' | relative_url }}">Contacto</a>
-      </nav>
-      <div class="header-actions">
-        <!-- Tema claro/oscuro -->
-        <label class="theme-switch">
-          <input type="checkbox" id="toggle-theme">
-          <div class="slider">
-            <span class="icon sun">☀️</span>
-            <span class="icon moon">🌙</span>
-          </div>
-        </label>
-        <a class="button-cta" href="#contacto">Cotiza ahora</a>
-      </div>
+<!-- ENCABEZADO CON NAVEGACIÓN -->
+<header class="site-header">
+  <div class="container header-inner">
+    <div class="brand">
+      <img class="logo" src="{{ '/assets/images/logo.png' | relative_url }}" alt="CTP">
+      <span>CTP</span>
     </div>
-  </header>
 
-  <!-- CONTENIDO PRINCIPAL -->
-  <main class="container" style="padding-top:24px">
-    {{ content }}
-  </main>
+    <nav class="nav">
+      <a href="{{ '/' | relative_url }}" class="{% if page.url == '/' %}is-active{% endif %}">Inicio</a>
+      <a href="{{ '/categoria/' | relative_url }}" class="{% if page.url contains '/categoria/' and page.url != '/categoria/' %}is-active{% endif %}">Productos</a>
+      <a href="{{ '/#beneficios' | relative_url }}">Beneficios</a>
+      <a href="{{ '/#marcas' | relative_url }}">Marcas</a>
+      <a href="{{ '/#contacto' | relative_url }}">Contacto</a>
+    </nav>
 
-  <!-- FOOTER -->
-  <footer class="site-footer">
-    <div class="container">
-      <p>© {{ 'now' | date: '%Y' }} Comercializadora de Plásticos Potosina S.A. de C.V.</p>
-      <p style="font-size:.95rem">Av. Industrias 1750 -14A, Jardines del Sur, San Luis Potosí, S.L.P. | <a href="mailto:ventas@ctpslp.com.mx">ventas@ctpslp.com.mx</a></p>
+    <div class="header-actions">
+      <a href="mailto:ventas@ctpslp.com.mx" class="button-cta">Cotiza ahora</a>
+
+      <!-- INTERRUPTOR DE MODO OSCURO -->
+      <label class="theme-switch">
+        <input type="checkbox" id="theme-toggle">
+        <span class="slider">
+          <span class="icon sun">☀️</span>
+          <span class="icon moon">🌙</span>
+        </span>
+      </label>
     </div>
-  </footer>
-
-  <!-- WhatsApp flotante -->
-  <a class="wafloat" href="https://wa.me/524447142939" target="_blank" rel="noopener">
-    <img src="{{ '/assets/icons/whatsapp.png' | relative_url }}" alt="WhatsApp">
-  </a>
-
-  <!-- Script para alternar modo claro/oscuro -->
-  <script>
-    const toggle = document.getElementById('toggle-theme');
-    toggle.addEventListener('change', () => {
-      document.documentElement.setAttribute('data-theme', toggle.checked ? 'light' : 'dark');
-    });
-  </script>
-</body>
-</html>
+  </div>
+</header>
