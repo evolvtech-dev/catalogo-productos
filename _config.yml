@@ -1,7 +1,7 @@
 title: CTP | Comercializadora de Plásticos Potosina
 description: Catálogo de productos CTP
-url: ""                # Déjalo vacío para GitHub Pages
-baseurl: ""            # Si tu sitio vive en /repo, pon: "/NOMBRE_REPO"
+url: ""
+baseurl: ""   # si el sitio está en https://user.github.io/repo, pon: "/repo"
 
 markdown: kramdown
 permalink: pretty
@@ -20,9 +20,4 @@ defaults:
       path: ""
       type: products
     values:
-      layout: producto
-
-exclude:
-  - README.md
-  - node_modules
-  - vendor
+      layout: product
