@@ -1,0 +1,73 @@
+---
+layout: default
+---
+
+<nav class="breadcrumbs">
+  <a href="{{ '/categoria/' | relative_url }}">Catálogo</a>
+  <span class="crumb-sep">/</span>
+  <a href="{{ '/categoria/' | append: page.category | append: '/' | relative_url }}">{{ page.category }}</a>
+  <span class="crumb-sep">/</span>
+  <span>{{ page.title }}</span>
+</nav>
+
+<article class="product-page">
+  <div class="product-hero">
+    <div class="product-hero-image">
+      {% if page.image %}
+        <img src="{{ page.image | relative_url }}" alt="{{ page.title }}">
+      {% endif %}
+    </div>
+
+    <div class="product-hero-content">
+      <h1 class="product-title">{{ page.title }}</h1>
+
+      {% if page.summary %}
+        <p class="product-summary">{{ page.summary }}</p>
+      {% endif %}
+
+      <div class="product-actions">
+        {% if page.datasheet %}
+          <a class="btn" href="{{ page.datasheet | relative_url }}" target="_blank" rel="noopener">Ver ficha técnica</a>
+        {% endif %}
+
+        <a class="btn btn-secondary" href="https://wa.me/5210000000000?text=Hola%20CTP%2C%20me%20interesa%3A%20{{ page.title | url_encode }}" target="_blank" rel="noopener">
+          Cotizar por WhatsApp
+        </a>
+      </div>
+
+      <div class="product-badges">
+        {% if page.market %}<span class="badge">{{ page.market }}</span>{% endif %}
+        {% if page.category %}<span class="badge badge-soft">{{ page.category }}</span>{% endif %}
+      </div>
+    </div>
+  </div>
+
+  <div class="product-content">
+    {% if page.specs %}
+      <section class="card">
+        <h2>Especificaciones</h2>
+
+        {% if page.specs.first %}
+          <ul class="specs-list">
+            {% for s in page.specs %}
+              <li>{{ s }}</li>
+            {% endfor %}
+          </ul>
+        {% else %}
+          <div class="prose">
+            {{ page.specs | markdownify }}
+          </div>
+        {% endif %}
+      </section>
+    {% endif %}
+
+    {% if content and content != "" %}
+      <section class="card">
+        <h2>Detalles</h2>
+        <div class="prose">
+          {{ content }}
+        </div>
+      </section>
+    {% endif %}
+  </div>
+</article>
