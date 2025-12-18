@@ -6,7 +6,7 @@ permalink: /categoria/tuberia/
 
 # Tubería
 
-{% assign items = site.products | where: "category", "tuberia" %}
+{% assign items = site.products | where: "market", "Tubería" %}
 
 <div class="products-grid">
   {% for p in items %}
@@ -17,6 +17,10 @@ permalink: /categoria/tuberia/
       <div class="product-body">
         <h3>{{ p.title }}</h3>
         <p>{{ p.summary }}</p>
+        <div class="product-meta">
+          {% if p.badge %}<span class="badge">{{ p.badge }}</span>{% endif %}
+          {% if p.category %}<span class="badge badge-soft">{{ p.category }}</span>{% endif %}
+        </div>
       </div>
     </a>
   {% endfor %}
