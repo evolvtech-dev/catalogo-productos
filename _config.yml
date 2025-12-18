@@ -1,42 +1,28 @@
-title: Catálogo CTP
-description: Comercializadora de Plásticos Potosina – Catálogo informativo de productos.
-baseurl: "/catalogo-productos" # o "" si el sitio está en la raíz
-url: "https://evolvtech-dev.github.io" # o tu dominio propio
+title: CTP | Comercializadora de Plásticos Potosina
+description: Catálogo de productos CTP
+url: ""                # Déjalo vacío para GitHub Pages
+baseurl: ""            # Si tu sitio vive en /repo, pon: "/NOMBRE_REPO"
 
-theme: minima
-plugins:
-  - jekyll-feed
-  - jekyll-seo-tag
-  - jekyll-sitemap
-  - jekyll-relative-links
+markdown: kramdown
+permalink: pretty
 
 collections:
   products:
     output: true
-    permalink: /productos/:title/
+    permalink: /productos/:name/
 
 defaults:
   - scope:
       path: ""
-      type: "products"
     values:
-      layout: "product"
-      category: ""
-      summary: ""
-      specs: []
-
-include:
-  - _products
+      layout: default
+  - scope:
+      path: ""
+      type: products
+    values:
+      layout: producto
 
 exclude:
-  - Gemfile
-  - Gemfile.lock
+  - README.md
   - node_modules
   - vendor
-  - README.md
-  - .github
-
-markdown: kramdown
-highlighter: rouge
-
-permalink: pretty
