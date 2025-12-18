@@ -1,33 +1,27 @@
 ---
-layout: category
+layout: default
 title: Cementos y adhesivos
 permalink: /categoria/cementos-adhesivos/
-category: Cementos y adhesivos
 ---
 
-<!-- Hero de categoría -->
-<section class="hero">
-  <h1>Cementos y adhesivos</h1>
-  <p class="lead">Cementos solventes, limpiadores y adhesivos industriales para asegurar uniones seguras y duraderas en sistemas plásticos.</p>
-</section>
+# Cementos y adhesivos
 
-<!-- Lista de productos en esta categoría -->
-<section class="grid">
-  {% assign productos = site.products | where: "category", "Cementos y adhesivos" | sort: "order" %}
-  {% for p in productos %}
-    <article class="card">
-      <a class="card-media" href="{{ p.url | relative_url }}">
-        {% if p.image %}
-          <img src="{{ p.image | relative_url }}" alt="{{ p.title }}">
-        {% endif %}
-      </a>
-      <div class="card-body">
-        <h3 class="card-title"><a href="{{ p.url | relative_url }}">{{ p.title }}</a></h3>
-        {% if p.summary %}
-          <p class="card-text">{{ p.summary }}</p>
-        {% endif %}
-        <a class="button" href="{{ p.url | relative_url }}">Ver detalles</a>
+{% assign items = site.products | where: "category", "cementos-adhesivos" %}
+
+<div class="products-grid">
+  {% for p in items %}
+    <a class="product-card" href="{{ p.url | relative_url }}">
+      <div class="product-image">
+        <img src="{{ p.image | relative_url }}" alt="{{ p.title }}">
       </div>
-    </article>
+      <div class="product-body">
+        <h3>{{ p.title }}</h3>
+        <p>{{ p.summary }}</p>
+      </div>
+    </a>
   {% endfor %}
-</section>
+</div>
+
+{% if items == empty %}
+<p>No hay productos en esta categoría todavía.</p>
+{% endif %}
