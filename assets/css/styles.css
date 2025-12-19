@@ -475,3 +475,20 @@ html[data-theme="light"] .theme-toggle { background: #fff; }
   box-shadow: 0 8px 18px rgba(0,0,0,.18);
 }
 
+/* ===========================
+   CATEGORÍAS: si la imagen no existe, no muestres el ícono roto
+=========================== */
+.category-icon img {
+  display: none;
+}
+
+/* Ajuste visual para que el gradiente se vea como “hero” limpio */
+.category-icon {
+  position: relative;
+}
+.category-icon::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 12px;
+}
