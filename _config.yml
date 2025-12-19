@@ -1,7 +1,7 @@
 title: CTP | Comercializadora de Plásticos Potosina
 description: Catálogo de productos CTP
-url: ""
-baseurl: ""   # si el sitio está en https://user.github.io/repo, pon: "/repo"
+url: "https://evolvtech-dev.github.io"
+baseurl: "/catalogo-productos"
 
 markdown: kramdown
 permalink: pretty
@@ -21,3 +21,8 @@ defaults:
       type: products
     values:
       layout: product
+
+exclude:
+  - README.md
+  - node_modules
+  - vendor
