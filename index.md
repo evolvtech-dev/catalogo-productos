@@ -4,8 +4,9 @@ title: Inicio
 permalink: /
 ---
 
-# CTP
+<div class="hero">
+  <h1>CTP</h1>
+  <p class="lead">Catálogo de productos para aplicaciones industriales y comerciales.</p>
 
-Catálogo de productos para aplicaciones industriales y comerciales.
-
-<a class="btn" href="{{ '/categoria/' | relative_url }}">Ver catálogo</a>
+  <a class="btn" href="{{ '/categoria/' | relative_url }}">Ver catálogo</a>
+</div>
