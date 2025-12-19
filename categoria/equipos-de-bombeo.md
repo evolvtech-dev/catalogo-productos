@@ -6,16 +6,26 @@ permalink: /categoria/equipos-de-bombeo/
 
 # Equipos de bombeo
 
-{% assign items = site.products | where: "market", "Equipos de bombeo" %}
+{% assign slug = "equipos-de-bombeo" %}
+{% assign items = "" | split: "" %}
+
+{% for p in site.products %}
+  {% assign m = p.market | default: "" | downcase
+    | replace:'á','a' | replace:'é','e' | replace:'í','i' | replace:'ó','o' | replace:'ú','u' | replace:'ñ','n'
+    | replace:' ','-' | replace:'&','y' | replace:'/','-' %}
+  {% if m == slug %}
+    {% assign items = items | push: p %}
+  {% endif %}
+{% endfor %}
+
+{% assign items = items | sort: "order" %}
 
 <div class="products-grid">
   {% for p in items %}
     <a class="product-card" href="{{ p.url | relative_url }}">
-      <div class="product-image">
-        <img src="{{ p.image | relative_url }}" alt="{{ p.title }}">
-      </div>
+      <div class="product-image"><img src="{{ p.image | relative_url }}" alt="{{ p.title | replace: '"', '' }}"></div>
       <div class="product-body">
-        <h3>{{ p.title }}</h3>
+        <h3>{{ p.title | replace: '"', '' }}</h3>
         <p>{{ p.summary }}</p>
         <div class="product-meta">
           {% if p.badge %}<span class="badge">{{ p.badge }}</span>{% endif %}
