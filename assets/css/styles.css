@@ -492,3 +492,27 @@ html[data-theme="light"] .theme-toggle { background: #fff; }
   inset: 0;
   border-radius: 12px;
 }
+
+/* ===========================
+   PRODUCTOS – IMAGEN CON FONDO BLANCO
+   (reemplaza el fondo degradado)
+=========================== */
+
+.product-image {
+  height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;              /* FONDO BLANCO */
+  padding: 12px;
+  border-radius: 12px;
+  border: 1px solid var(--border);  /* borde sutil */
+}
+
+.product-image img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  background: #ffffff;              /* asegura fondo blanco real */
+  border-radius: 8px;
+}
