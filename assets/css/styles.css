@@ -261,11 +261,28 @@ html[data-theme="light"] .site-header{ background:rgba(255,255,255,.9); }
 }
 
 .product-meta{
-  margin-top:6px;
+  margin-top:16px;                 /* más aire arriba */
   display:flex;
   flex-wrap:wrap;
-  gap:8px;
+  gap:10px 12px;                   /* más espacio horizontal y vertical */
 }
+
+/* Badges más ligeros y respirables */
+.product-meta .badge,
+.product-meta .badge-soft{
+  padding:6px 14px;
+  font-size:.85rem;
+  line-height:1.2;
+}
+
+/* Separación clara antes del botón */
+.product-meta + .btn,
+.product-meta + .btn-secondary,
+.product-meta + .wa-float,
+.product-meta + .btn-whatsapp{
+  margin-top:20px;
+}
+
 
 /* ===========================
    BREADCRUMBS
