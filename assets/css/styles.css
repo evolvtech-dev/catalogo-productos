@@ -389,3 +389,53 @@ html[data-theme="light"] .site-header{ background:rgba(255,255,255,.9); }
 @media (max-width:480px){
   .wa-float{ right:14px; bottom:14px; }
 }
+
+/* ===========================
+   DETALLE DE PRODUCTO: SPACING DE BADGES + BOTÓN
+   (override final para que NO se vea apretado)
+=========================== */
+
+/* Cualquier fila de badges dentro del detalle */
+.product-hero .product-meta,
+.product-hero .badges,
+.product-hero .pills,
+.product-hero .tags,
+.product-hero .chips,
+.product-hero .meta,
+.product-hero .product-tags{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 12px;     /* más aire */
+  margin-top: 18px;   /* separa de summary */
+  margin-bottom: 18px;/* separa del botón */
+}
+
+/* Si el contenedor no tiene clase, pero hay badges seguidos,
+   forzamos separación entre badges */
+.product-hero .badge,
+.product-hero .badge-soft{
+  padding: 7px 14px;
+  font-size: .9rem;
+  line-height: 1.15;
+}
+
+/* Separación clara del botón debajo */
+.product-hero .btn{
+  margin-top: 8px;     /* por si no hay contenedor arriba */
+  padding: 13px 18px;
+  border-radius: 16px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Si el botón viene inmediatamente después de una fila de badges */
+.product-hero .product-meta + .btn,
+.product-hero .badges + .btn,
+.product-hero .pills + .btn,
+.product-hero .tags + .btn,
+.product-hero .chips + .btn,
+.product-hero .meta + .btn,
+.product-hero .product-tags + .btn{
+  margin-top: 18px;
+}
