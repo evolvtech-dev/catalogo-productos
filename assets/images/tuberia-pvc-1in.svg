@@ -1,5 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
-  <rect width="800" height="600" rx="24" fill="#0b0f19"/>
-  <rect x="140" y="250" width="520" height="100" rx="50" fill="#22d3ee" opacity=".35" stroke="#22d3ee"/>
-  <text x="50%" y="50%" fill="#e5e7eb" font-size="40" font-weight="700" text-anchor="middle" dominant-baseline="middle">Tubería PVC 1"</text>
-</svg>
